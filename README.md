@@ -69,3 +69,28 @@ The environment will be our workstation for the sessions, there are a few steps 
 * Change to a dark theme if you prefer:
 
   * View > Themes > UI Themes > Classic Dark
+
+### Run the below commands in the Cloud9 terminal
+
+#### Clone the repository
+
+```bash
+$ git clone https://github.com/pedreviljoen/aws-vls-cpt-ci_cd_workshop.git workshop
+```
+
+#### Navigate to the project directory and run the bootstrap script
+
+The script installs and configures the necessary pre-requisites
+
+```bash
+$ cd workshop/
+$ scripts/bootstrap.sh
+```
+
+Confirm the IAM role is as expected
+
+> checklist
+
+- [ ] Complete launching initial environment section, AWS resources for day 1 / 2
+- [ ] Add detailed Labs for day 1 / 2
+- [ ] Add section for day 3 challenge
