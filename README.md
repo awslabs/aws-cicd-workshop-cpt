@@ -94,3 +94,4 @@ Confirm the IAM role is as expected
 - [ ] Complete launching initial environment section, AWS resources for day 1 / 2
 - [ ] Add detailed Labs for day 1 / 2
 - [ ] Add section for day 3 challenge
+- [ ] Add template URL to launch stack action
