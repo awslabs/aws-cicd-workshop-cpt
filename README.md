@@ -1,4 +1,4 @@
-# AWS Engineering Learning Series - EKS
+# AWS Engineering Learning Series - CI / CD
 
 > A series of AWS Labs with CI/CD services
 
