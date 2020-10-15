@@ -89,7 +89,7 @@ $ scripts/bootstrap.sh
 
 Confirm the IAM role is as expected
 
-> checklist
+> internal checklist
 
 - [ ] Complete launching initial environment section, AWS resources for day 1 / 2
 - [ ] Add detailed Labs for day 1 / 2
