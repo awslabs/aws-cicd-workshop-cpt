@@ -22,7 +22,7 @@ Preferably right click an open it in a new tab.
 
 | Region          | CloudFormation     |
 | --------------- |:------------------:|
-| eu-west-1 (Ireland)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=workshop&templateURL=https://ci-cd-workshop-cloud9-template.s3-eu-west-1.amazonaws.com/c9-template.yaml) |
+| eu-west-1 (Ireland)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=cicd-workshop&templateURL=https://ci-cd-workshop-cloud9-template.s3-eu-west-1.amazonaws.com/c9-template.yaml) |
 
 
 Just before clicking "Create stack" button, please tick "I acknowledge that AWS CloudFormation might create IAM resources."
