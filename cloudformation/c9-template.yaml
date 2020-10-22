@@ -39,7 +39,7 @@ Resources:
       Description: "EKS Cloud9 environment"
       InstanceType: !Ref 'EC2InstanceType'
       Name: cicd-workshop-c9
-      SubnetId: !Ref Subnet
+      SubnetId: !Ref 'Subnet'
 
   AdminRole: 
     Type: "AWS::IAM::Role"
