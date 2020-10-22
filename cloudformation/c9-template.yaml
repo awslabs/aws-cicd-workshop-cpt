@@ -26,8 +26,10 @@ Parameters:
       - 60
       - 240
       - 1440
-      - 10080
-      - 0
+    
+  Subnet:
+    Description: Subnet to launch Cloud 9 instance in
+    Type: AWS::EC2::Subnet::Id
 
 Resources:
   CICDCloud9:
@@ -36,7 +38,8 @@ Resources:
       AutomaticStopTimeMinutes: !Ref AutoHibernateTimeout
       Description: "EKS Cloud9 environment"
       InstanceType: !Ref 'EC2InstanceType'
-      Name: ci-cd-cloud9
+      Name: cicd-workshop-c9
+      SubnetId: !Ref Subnet
 
   AdminRole: 
     Type: "AWS::IAM::Role"
