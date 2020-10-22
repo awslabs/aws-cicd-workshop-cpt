@@ -34,6 +34,8 @@ Parameters:
 Resources:
   CICDCloud9:
     Type: AWS::Cloud9::EnvironmentEC2
+    DependsOn:
+        - "AdminInstanceProfile"
     Properties: 
       AutomaticStopTimeMinutes: !Ref AutoHibernateTimeout
       Description: "EKS Cloud9 environment"
