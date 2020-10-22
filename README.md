@@ -8,7 +8,12 @@
 
 ## Labs
 
-
+- [Lab 1](./labs/01-repo/README.md)
+- [Lab 2](./labs/02-build/README.md)
+- [Lab 3](./labs/03-deploy/README.md)
+- [Lab 4](./labs/04-pipeline/README.md)
+- [Lab 5](./labs/05-infra-as-code/README.md)
+- [Lab 6](./labs/06-artifacts/README.md)
 
 ## Launching your Lab Environment
 
