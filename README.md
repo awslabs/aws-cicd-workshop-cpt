@@ -6,6 +6,8 @@
     <img src="./assets/aws_logo.png" width="50%" height="75%">
 </div>
 
+## Labs
+
 ## Launching your Lab Environment
 
 ### 1. Launch a Cloud9 Environment

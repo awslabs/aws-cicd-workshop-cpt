@@ -1,14 +1,43 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Create a Cloud9 environment and EC2 Admin role (create the stack in the AWS Console)
 
+Parameters:
+  EC2InstanceType:
+    Description: EC2 instance type on which IDE runs
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      - m3.medium
+      - m3.large
+      - m4.large
+      - c3.large
+      - c4.large
+
+  AutoHibernateTimeout:
+    Description:  How many minutes idle before shutting down the IDE. Options, 30min, 1hr, 4hr, 1day, 1week, Never (0)
+    Type: Number
+    Default: 30
+    AllowedValues:
+      - 30
+      - 60
+      - 240
+      - 1440
+      - 10080
+      - 0
+
 Resources:
-  EKSCloud9:
+  CICDCloud9:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties: 
-      AutomaticStopTimeMinutes: 30
+      AutomaticStopTimeMinutes: !Ref AutoHibernateTimeout
       Description: "EKS Cloud9 environment"
-      InstanceType: t3.micro
-#      Name: ci-cd-cloud9
+      InstanceType: !Ref 'EC2InstanceType'
+      Name: ci-cd-cloud9
+
   AdminRole: 
     Type: "AWS::IAM::Role"
     Properties: 
@@ -49,3 +78,11 @@ Outputs:
   InstanceProfile:
     Description: EC2 instance profile for the Cloud9 instance
     Value: !Ref "AdminInstanceProfile"
+
+  Cloud9URL:
+    Description: Cloud9 Environment URL
+    Value:
+      Fn::Join:
+      - ''
+      - - !Sub https://${AWS::Region}.console.aws.amazon.com/cloud9/ide/
+        - !Ref 'CICDCloud9'
