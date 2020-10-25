@@ -4,7 +4,8 @@
   "description": "A simple node express server",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:local": "node app.js"
   },
   "author": "Pedre Viljoen",
   "license": "MIT",
