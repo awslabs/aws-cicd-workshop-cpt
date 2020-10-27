@@ -1,0 +1,38 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+
+Paramaters:
+    DynamoDBTableName:
+        Type: String
+        Default: Blogs
+        Description: Name of the DynamoDB table to create
+
+Resources:
+  myDynamoDBTable: 
+    Type: AWS::DynamoDB::Table
+    Properties: 
+      AttributeDefinitions: 
+        - 
+          AttributeName: "post_id"
+          AttributeType: "N"
+        - 
+          AttributeName: "title"
+          AttributeType: "S"
+        - 
+          AttributeName: "content"
+          AttributeType: "S"
+        -
+          AttributeName: "author"
+          AttributeType: "S"
+      KeySchema: 
+        - 
+          AttributeName: "post_id"
+          KeyType: "HASH"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+      TableName: !Ref DynamoDBTableName
+      Tags:
+        Key: workshop
+        Value: aws-cicd
+         
