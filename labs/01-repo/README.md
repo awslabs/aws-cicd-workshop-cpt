@@ -53,6 +53,17 @@ Note: After cloning the repository, a warning "You appear to have cloned an empt
 
 ## Add files to the CodeCommit repository
 
+
+### Configuring your git user name and email on the cloud 9 instance. 
+
+While this is not necessary, use the following commands to set your git username and email address. These willbe the details used for commits:
+
+```
+git config --global user.name "My Username"
+git config --global user.email myemail@example.com
+```
+
+
 We are going to clone a sample application from another repository to use for our CodeCommit repository. 
 
 
