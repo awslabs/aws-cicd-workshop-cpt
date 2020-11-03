@@ -19,9 +19,9 @@ router.get('/:artist/:album', controller.findOne)
 router.get('/', controller.findAll)
 
 // Update
-router.put('/:id', controller.updateOne)
+router.put('/:artist/:album', controller.updateOne)
 
 // Delete
-router.delete('/:id', controller.deleteOne)
+router.delete('/:artist/:album', controller.deleteOne)
 
 module.exports = router

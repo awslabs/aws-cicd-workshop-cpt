@@ -35,7 +35,6 @@ exports.create = async (req, res) => {
 
             resolve({
                 message: "Successfully added record to table",
-                data: data,
                 success: true
             })
         });
@@ -139,10 +138,102 @@ exports.findAll = async (req, res) => {
     }
 }
 
-exports.deleteOne = (req, res) => {
+exports.deleteOne = async (req, res) => {
     // TODO: use dynamoDB instance method deleteItem
+    const {
+        album,
+        artist
+    } = req.params
+    const docClient = new AWS.DynamoDB.DocumentClient();
+
+    const params = {
+        TableName: "myTableName",
+        Key: {
+            "Artist": artist,
+            "Album": album
+        },
+    }
+
+    const requestPromise = new Promise((resolve, reject) => {
+        docClient.delete(params, (err, data) => {
+            if (err) {
+                reject(JSON.stringify(err, null, 2))
+            }
+
+            resolve({
+                message: "Successfully deleted the record in the table",
+                success: true
+            })
+        })
+    })
+
+    try {
+        const request = await requestPromise
+
+        res.status(200).send({
+            ...request          
+        })
+    } catch (error) {
+        console.log('Error: ', error)
+        res.status(400).send({
+            error: JSON.parse(error),
+            success: false
+        })
+    }
 }
 
-exports.updateOne = (req, res) => {
+exports.updateOne = async (req, res) => {
     // TODO: use dynamoDB instance method updateItem
+    const {
+        sales,
+        songs
+    } = req.body
+
+    const {
+        album,
+        artist
+    } = req.params
+    const docClient = new AWS.DynamoDB.DocumentClient();
+
+    const params = {
+        TableName: "myTableName",
+        Key: {
+            "Artist": artist,
+            "Album": album
+        },
+        UpdateExpression: "set Sales = :sales, Songs = :songs",
+        ExpressionAttributeValues: {
+            ":sales": sales,
+            ":songs": songs
+        },
+        ReturnValues: "UPDATED_NEW"
+    }
+
+    const requestPromise = new Promise((resolve, reject) => {
+        docClient.update(params, (err, data) => {
+            if (err) {
+                reject(JSON.stringify(err, null, 2))
+            }
+
+            resolve({
+                message: "Successfully updated the record in the table",
+                data: data,
+                success: true
+            })
+        })
+    })
+
+    try {
+        const request = await requestPromise
+
+        res.status(200).send({
+            ...request          
+        })
+    } catch (error) {
+        console.log('Error: ', error)
+        res.status(400).send({
+            error: JSON.parse(error),
+            success: false
+        })
+    }
 }
