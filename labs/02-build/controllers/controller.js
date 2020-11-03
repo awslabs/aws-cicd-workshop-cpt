@@ -27,7 +27,7 @@ exports.create = async (req, res) => {
     }
 
     // Call putItem method for DynamoDB SDK
-    const requestPromise = new Promise(async (resolve, reject) => {
+    const requestPromise = new Promise((resolve, reject) => {
         docClient.put(params, (err, data) => {
             if (err) {
                 reject(JSON.stringify(err, null, 2))
@@ -73,7 +73,7 @@ exports.findOne = async (req, res) => {
         }
     }
 
-    const requestPromise = new Promise(async (resolve, reject) => {
+    const requestPromise = new Promise((resolve, reject) => {
         docClient.get(params, (err, data) => {
             if (err) {
                 reject(JSON.stringify(err, null, 2))
@@ -103,8 +103,40 @@ exports.findOne = async (req, res) => {
     }
 }
 
-exports.findAll = (req, res) => {
+exports.findAll = async (req, res) => {
     // TODO: use dynamoDB instance method batchGetItem
+    const docClient = new AWS.DynamoDB.DocumentClient();
+    const params = {
+        TableName: "myTableName"
+    }
+
+    const requestPromise = new Promise((resolve, reject) => {
+        docClient.scan(params, (err, data) => {
+            if (err) {
+                reject(JSON.stringify(err, null, 2))
+            }
+
+            resolve({
+                message: "Successfully scanned the table for records",
+                data: data,
+                success: true
+            })
+        })
+    })
+
+    try {
+        const request = await requestPromise
+
+        res.status(200).send({
+            ...request          
+        })
+    } catch (error) {
+        console.log('Error: ', error)
+        res.status(400).send({
+            error: JSON.parse(error),
+            success: false
+        })
+    }
 }
 
 exports.deleteOne = (req, res) => {
