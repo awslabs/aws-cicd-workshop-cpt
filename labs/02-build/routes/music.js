@@ -15,7 +15,7 @@ router.use((req, res, next) => {
 router.post('/', controller.create)
 
 // Read
-router.get('/:id', controller.findOne)
+router.get('/:artist/:album', controller.findOne)
 router.get('/', controller.findAll)
 
 // Update
