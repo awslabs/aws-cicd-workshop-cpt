@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const music = require('./routes/music')
-const PORT = 5000
+const PORT = process.env.PORT || 3000
 
 // Create the express app instance
 const app = express()

@@ -1,8 +1,19 @@
 const AWS = require('aws-sdk');
-const globalConf = require('../config/global')
-// Instantiate dynamoDB instance - https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
+const dotenv = require('dotenv')
+const PROD = process.env.ENV === 'prod'
 
-AWS.config.update(globalConf.config);
+if (!PROD) {
+    dotenv.config()
+}
+
+// Instantiate AWS SDK with credentials
+AWS.config.update({
+    accessKeyId: process.env.aws_access_key,
+    secretAccessKey: process.env.aws_secret_key,
+    region: process.env.region,
+    endpoint: process.env.service_endpoint
+});
+
 
 exports.create = async (req, res) => {
     // Extract req paramaters

@@ -1,3 +1,4 @@
 node_modules
 labs/02-build/node_modules
 labs/02-build/config/*
+labs/02-build/.env
