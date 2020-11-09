@@ -1,4 +1,4 @@
-# Lab 2 - Beanstalk web server application
+# Beanstalk web server application
 
 ## Creating and runnig a Beanstalk environment
 
