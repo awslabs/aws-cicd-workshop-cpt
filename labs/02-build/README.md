@@ -8,3 +8,5 @@ What we will learn:
 * How setup and configure a CodeBuild project
 * How CodeBuild fits in with a CodePipeline
 * How CodeBuild handles the input source
+* Running a build vs CodePipeline triggered builds
+* Troubleshooting a build/viewing logs and phase details
