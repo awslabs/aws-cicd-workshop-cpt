@@ -21,7 +21,7 @@ Next use the below AWS cli command as a base replacing the --name, --source and 
 * --source: Use the URL copied from the CodeCommit clone for HTTPS [CodeCommit-URL-example](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-connect.html#how-to-connect-http)
 * --service-role: Create a service role for the CodeBuild project [CodeBuild-IAM-role](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role)
 ```
-aws codebuild create-project --name "CodeBuildVLSDemo" --source "{\"type\": \"CODECOMMIT\",\"location\": \"https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CodeCommitVLS\"}" --artifacts {"\"type\": \"NO_ARTIFACTS\""} --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/amazonlinux2-x86_64-standard:3.0\",\"computeType\": \"BUILD_GENERAL1_SMALL\"}" --service-role "arn:aws:iam::096439948936:role/service-role/codebuild-CodeBuildVLS-service-role"
+aws codebuild create-project --name "CodeBuildVLSDemo" --source "{\"type\": \"CODECOMMIT\",\"location\": \"https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CodeCommitVLS\"}" --artifacts {"\"type\": \"NO_ARTIFACTS\""} --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/amazonlinux2-x86_64-standard:3.0\",\"computeType\": \"BUILD_GENERAL1_SMALL\"}" --service-role "arn:aws:iam::xxxxxxxxxxxx:role/service-role/codebuild-CodeBuildVLS-service-role"
 ```
 Note: The service role used must have permissions to access the CodeCommit repository
 
