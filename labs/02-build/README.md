@@ -1,4 +1,4 @@
-# Lab 2 - CodeBuild
+# Lab 2 - CodeBuild (In progress)
 
 In this lab we will create a simple CodeBuild project along with the crucial BuildSpec file which will be used when running builds within the CodeBuild project. 
 
