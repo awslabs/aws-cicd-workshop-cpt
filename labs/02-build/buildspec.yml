@@ -11,7 +11,7 @@ phases:
       - ls -la target
       - cd target
       - mv my-web-app.war my-web-app.zip
-      - aws s3 cp my-web-app.zip s3://andmerwe-codebuild/
+      - aws s3 cp my-web-app.zip s3://xxxxxxxxxxxxxxx/
       - mkdir eb-app
       - unzip -d eb-app my-web-app.zip
       - ls -la eb-app/
