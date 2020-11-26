@@ -23,12 +23,11 @@ This will be where you'll be performing the labs throughout the sessions.
 
 Click the button to begin creating a CloudFormation stack for the region you are assigned.
 
-Preferably right click an open it in a new tab.
+Preferably right click and open it in a new tab.
 
 | Region          | CloudFormation     |
 | --------------- |:------------------:|
 | eu-west-1 (Ireland)       | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=cicd-workshop&templateURL=https://ci-cd-workshop-cloud9-template.s3-eu-west-1.amazonaws.com/c9-template.yaml) |
-
 
 Just before clicking "Create stack" button, please tick "I acknowledge that AWS CloudFormation might create IAM resources."
 
@@ -40,15 +39,14 @@ This will allow your cloud9 environment access to perform the actions needed for
 
 This can be done in the EC2 console, navigate to your EC2 instances, or click the link below:
 
-Preferably right click an open it in a new tab.
+Preferably right click and open it in a new tab.
 
 | Region          | EC2     |
 | --------------- |:------------------:|
 | eu-west-1 (Ireland)       | [Console link](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:tag:Name=cloud9;sort=instanceState) |
 
-
 * Select the Cloud9 instance
-* Click Actions > Instance Settings > Attach/Replace IAM Role
+* Click Actions > Security > Modify IAM role
 * Filter the roles, searching for "cloud9"
 * Click Apply once the role is selected
 
@@ -56,8 +54,7 @@ Preferably right click an open it in a new tab.
 
 This can be done in the Cloud9 console, navigate to Cloud9 or click the link below:
 
-Preferably right click an open it in a new tab.
-
+Preferably right click and open it in a new tab.
 
 | Region          | EC2     |
 | --------------- |:------------------:|
