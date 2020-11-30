@@ -3,6 +3,7 @@
 In this lab we will create a simple CodeBuild project along with the crucial BuildSpec file which will be used when running builds within the CodeBuild project. 
 
 Outcomes:
+* Create IAM role for CodeBuild project
 * Create a CodeBuild project
 * Start a build within the project 
 * How CodeBuild fits in with a CodePipeline
@@ -10,7 +11,12 @@ Outcomes:
 * Running a build vs CodePipeline triggered builds
 * Troubleshooting a build/viewing logs and phase details
 
-## Creating a CodeBuild project
+
+## Create IAM role for CodeBuild project
+Before creating the CodeBuild project an IAM role is required which will allow the CodeBuild service permission to other services such as S3. The creation of the CodeBuild service role can be done from the AWS cli or the console. [IAM service role creation](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role), 
+
+
+## Create CodeBuild project
 To create a CodeBuild project use either the console or AWS cli, in this example the cli will be used to quickly create a simple build project.
 One of the pre-requisites for creating a build project is the buildspec.yml file which is collection of commands run during the build, these commands perform the processing on the artifacts collected from the source and then output the artifacts to either the next stage in a CodePipeline or to an S3 bucket. 
 
@@ -19,7 +25,7 @@ Before creating the CodeBuild project clone and upload the buildspec.yml, pom.xm
 Next use the below AWS cli command as a base replacing the --name, --source and --service-role with values from your own account:
 * --name: Any name can be provided here
 * --source: Use the URL copied from the CodeCommit clone for HTTPS [CodeCommit-URL-example](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-connect.html#how-to-connect-http)
-* --service-role: Create a service role for the CodeBuild project [CodeBuild-IAM-role](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role)
+* --service-role: 
 ```
 aws codebuild create-project --name "CodeBuildVLSDemo" --source "{\"type\": \"CODECOMMIT\",\"location\": \"https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CodeCommitVLS\"}" --artifacts {"\"type\": \"NO_ARTIFACTS\""} --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/amazonlinux2-x86_64-standard:3.0\",\"computeType\": \"BUILD_GENERAL1_SMALL\"}" --service-role "arn:aws:iam::xxxxxxxxxxxx:role/service-role/codebuild-CodeBuildVLS-service-role"
 ```
