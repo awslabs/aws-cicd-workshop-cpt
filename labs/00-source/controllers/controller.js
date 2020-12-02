@@ -34,7 +34,7 @@ exports.create = async (req, res) => {
             "Sales": sales,
             "Songs": songs
         },
-        TableName: "myTableName"
+        TableName: "artistTable"
     }
 
     // Call putItem method for DynamoDB SDK

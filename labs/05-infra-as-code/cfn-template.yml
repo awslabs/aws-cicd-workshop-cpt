@@ -1,5 +1,10 @@
 
 AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  TableName:
+    Type: String
+    Default: 'myTable'
+    Description: 'Specify a table name'
 Resources: 
   myDynamoDBTable: 
     Type: AWS::DynamoDB::Table
@@ -27,7 +32,7 @@ Resources:
       ProvisionedThroughput: 
         ReadCapacityUnits: "5"
         WriteCapacityUnits: "5"
-      TableName: "myTableName"
+      TableName: !Ref TableName
       GlobalSecondaryIndexes: 
         - 
           IndexName: "myGSI"
