@@ -49,12 +49,14 @@ Create the pipeline using the provided `CodePipeline.json` file. There are a few
 2. Create an S3 bucket that will store our artifacts. Give your bucket a unique name:
 
     ```console
-    aws s3 mb s3://codepipeline-eu-west-1-1234567890
+    aws s3 mb s3://codepipeline-eu-west-1-0123456789
     ```
 
 3. Replace `[ArtifactStoreBucket]` with your S3 bucket's name
 
-4. Create the pipeline:
+4. Replace `[your-chosen-development-env-name]` and `[your-chosen-production-env-name]` with the names of the Beanstalk Environments you created in Lab 3.
+
+5. Create the pipeline:
 
     ```console
     aws codepipeline create-pipeline --cli-input-json file://CodePipeline.json
