@@ -48,7 +48,7 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ProjectName": "aws-vls"
+                            "ProjectName": "CodeBuildVLSDemo"
                         },
                         "outputArtifacts": [
                             {
@@ -65,10 +65,10 @@
                 ]
             },
             {
-                "name": "Deploy",
+                "name": "DeployDevelopment",
                 "actions": [
                     {
-                        "name": "Deploy",
+                        "name": "DeployDevelopment",
                         "actionTypeId": {
                             "category": "Deploy",
                             "owner": "AWS",
@@ -77,8 +77,8 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ApplicationName": "node-hello-vls",
-                            "EnvironmentName": "NodeHelloVls-env"
+                            "ApplicationName": "VLS",
+                            "EnvironmentName": "[your-chosen-development-env-name]"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [
@@ -111,7 +111,7 @@
                 ]
             },
             {
-                "name": "DeployProd",
+                "name": "DeployProduction",
                 "actions": [
                     {
                         "name": "DeployProduction",
@@ -123,8 +123,8 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ApplicationName": "node-hello-vls",
-                            "EnvironmentName": "NodeHelloVls-Prod"
+                            "ApplicationName": "VLS",
+                            "EnvironmentName": "[your-chosen-production-env-name]"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [
@@ -137,6 +137,6 @@
                 ]
             }
         ],
-        "version": 3
-    },
+        "version": 1
+    }
 }
