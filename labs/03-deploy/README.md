@@ -46,7 +46,7 @@ aws elasticbeanstalk check-dns-availability --cname-prefix [your-chosen-cname]
 Create QA environment using DNS name from previous step
 
 ```
-aws elasticbeanstalk create-environment --application-name VLS --environment-name [your-chosen-env-name] --cname-prefix [your-chosen-cname] --solution-stack-name "64bit Amazon Linux 2 v5.2.2 running Node.js 12" --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
+aws elasticbeanstalk create-environment --application-name VLS --environment-name [your-chosen-env-name] --cname-prefix [your-chosen-cname] --solution-stack-name "64bit Amazon Linux 2 v5.2.4 running Node.js 12" --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
 ```
 
 Check DNS availability for Green environment
@@ -58,15 +58,15 @@ aws elasticbeanstalk check-dns-availability --cname-prefix [your-chosen-cname]
 Create Prod environment using DNS name from previous step
 
 ```
-aws elasticbeanstalk create-environment --application-name VLS --environment-name [your-chosen-env-name] --cname-prefix [your-chosen-cname] --solution-stack-name "64bit Amazon Linux 2 v5.2.2 running Node.js 12" --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
+aws elasticbeanstalk create-environment --application-name VLS --environment-name [your-chosen-env-name] --cname-prefix [your-chosen-cname] --solution-stack-name "64bit Amazon Linux 2 v5.2.4 running Node.js 12" --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
 ```
 
 ## Deploy application to Environment
 
-First create application version using latest commit from CodeCommit, SourceLocation being reponame/commit-id
+First create application version using latest commit from CodeCommit, SourceLocation being reponame/commit-id, eg: SourceLocation=CICD/ad5810dd453af58c4be659d22e8b80eb9f84f7ed
 
 ```
-aws elasticbeanstalk create-application-version --application-name VLS --version-label v1 --process --source-build-information SourceType=Git,SourceRepository=CodeCommit,SourceLocation=CICD/ad5810dd453af58c4be659d22e8b80eb9f84f7ed
+aws elasticbeanstalk create-application-version --application-name VLS --version-label v1 --process --source-build-information SourceType=Git,SourceRepository=CodeCommit,SourceLocation=[reponame/commit-id]
 ```
 
 Deploy lastest update 
