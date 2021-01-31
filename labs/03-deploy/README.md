@@ -191,12 +191,12 @@ aws elasticbeanstalk create-environment \
 
 ## Deploy Application version 2 to QA environment
 
-First create an application version using latest commit from CodeCommit, SourceLocation being reponame/commit-id, eg: SourceLocation=CICD/ad5810dd453af58c4be659d22e8b80eb9f84f7ed
+First create an application version 2 using latest commit from CodeCommit, SourceLocation being reponame/commit-id, eg: SourceLocation=CICD/ad5810dd453af58c4be659d22e8b80eb9f84f7ed
 
 ```
 aws elasticbeanstalk create-application-version \
 --application-name VLS \
---version-label v1 --process \
+--version-label v2 --process \
 --source-build-information SourceType=Git,SourceRepository=CodeCommit,SourceLocation=[reponame/commit-id]
 ```
 
@@ -205,24 +205,30 @@ Example:
 ```
 aws elasticbeanstalk create-application-version \
 --application-name VLS \
---version-label v1 --process \
+--version-label v2 --process \
 --source-build-information SourceType=Git,SourceRepository=CodeCommit,SourceLocation=CICD/ad5810dd453af58c4be659d22e8b80eb9f84f7ed
 ```
 
 Deploy lastest update 
 
 ```
-aws elasticbeanstalk update-environment --application-name VLS --environment-name [your-prod-env-name] --version-label v1
+aws elasticbeanstalk update-environment --application-name VLS --environment-name [your-qa-env-name] --version-label v2
 ```
 
 Example:
 
 ```
-aws elasticbeanstalk update-environment --application-name VLS --environment-name vls-prod-env --version-label v1
+aws elasticbeanstalk update-environment --application-name VLS --environment-name vls-qa-env --version-label v2
 ```
 
 Retrieve evironment DNS and check application on the browser
 
 ```
-aws elasticbeanstalk describe-environments --environment-names [your-prod-env-name] --query "Environments[*].CNAME" --output text
+aws elasticbeanstalk describe-environments --environment-names [your-qa-env-name] --query "Environments[*].CNAME" --output text
+```
+
+## Swap Environments Prod to QA to make v2 the active deployment
+
+```
+aws elasticbeanstalk swap-environment-cnames --source-environment-name [your-prod-env-name] --destination-environment-name [your-qa-env-name]
 ```
