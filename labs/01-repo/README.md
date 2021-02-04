@@ -34,25 +34,30 @@ After running this command, a json object containing Metadata is returned. Here 
 }
 ```
 
-For this lab, we will need the value of the cloneUrlHttp for cloning the repo. More details on the metadata and the Create Repository command can be [here](https://docs.aws.amazon.com/cli/latest/reference/codecommit/create-repository.html)
+For this lab, we will need the value of the [cloneUrlHttp](https://github.com/pedreviljoen/aws-ci_cd_workshop_source) for cloning the sourcerepo. More details on the metadata and the Create Repository command can be [here](https://docs.aws.amazon.com/cli/latest/reference/codecommit/create-repository.html)
 
 
-## Cloning a CodeCommit repository.
+## Pushing to our CodeCommit repository.
 
-We are going to clone the repository created in the previous section using the [git clone command](https://www.git-scm.com/docs/git-clone):
-
+We are going to clone the source repository created in the previous section using the [git clone command](https://www.git-scm.com/docs/git-clone):
 
 ```
-git clone [cloneUrlHttp] repository
+git clone https://github.com/pedreviljoen/aws-ci_cd_workshop_source <name-of-repository>
 ```
 
-replacing [cloneUrlHttp] with the value returned when the repostory was created. 
+At this step we will change the remote of our repository to point to our CodeCommit repository. First we check our existing remote, which should have the below output:
 
-Note: After cloning the repository, a warning "You appear to have cloned an empty repository." will be returned.
+```
+git remote -v
+> origin  https://github.com/pedreviljoen/aws-ci_cd_workshop_source (fetch)
+> origin  https://github.com/pedreviljoen/aws-ci_cd_workshop_source (push)
+```
 
+Now we change the remote to point to our CodeCommit repository.
 
-## Add files to the CodeCommit repository
-
+```
+git remote set-url origin https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CICD
+```
 
 ### Configuring your git user name and email on the cloud 9 instance. 
 
