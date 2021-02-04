@@ -68,9 +68,7 @@ git config --global user.name "My Username"
 git config --global user.email myemail@example.com
 ```
 
-
 We are going to clone a sample application from another repository to use for our CodeCommit repository. 
-
 
 1. Navigate to the repository folder, 
 
@@ -86,11 +84,10 @@ git clone --mirror https://github.com/pedreviljoen/aws-vls-cpt-ci_cd_workshop.gi
 
 3. Push files to CodeCommit repsitory.
 
-
 ```
 git add .
 git commit -m "initial"
-git push origin master
+git push origin main
 
 ```
 
