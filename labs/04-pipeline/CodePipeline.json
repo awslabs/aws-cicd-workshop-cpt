@@ -50,11 +50,6 @@
                         "configuration": {
                             "ProjectName": "CodeBuildVLSDemo"
                         },
-                        "outputArtifacts": [
-                            {
-                                "name": "BuildArtifact"
-                            }
-                        ],
                         "inputArtifacts": [
                             {
                                 "name": "SourceArtifact"
@@ -83,7 +78,7 @@
                         "outputArtifacts": [],
                         "inputArtifacts": [
                             {
-                                "name": "BuildArtifact"
+                                "name": "SourceArtifact"
                             }
                         ],
                         "region": "eu-west-1",
@@ -129,7 +124,7 @@
                         "outputArtifacts": [],
                         "inputArtifacts": [
                             {
-                                "name": "BuildArtifact"
+                                "name": "SourceArtifact"
                             }
                         ],
                         "region": "eu-west-1"

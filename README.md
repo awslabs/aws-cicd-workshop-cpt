@@ -90,7 +90,9 @@ The script installs and configures the necessary pre-requisites
 
 ```bash
 $ cd workshop/
-$ scripts/bootstrap.sh
+$ cd scripts/
+$ chmod +x bootstrap.sh
+$ sudo bootstrap.sh
 ```
 
 Confirm the IAM role is as expected
