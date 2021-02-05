@@ -47,7 +47,7 @@ Preferably right click and open it in a new tab.
 
 * Select the Cloud9 instance
 * Click Actions > Security > Modify IAM role
-* Filter the roles, searching for "cloud9"
+* Filter the roles, searching for "cicd"
 * Click Apply once the role is selected
 
 ### 3. Access your Cloud9 environment
