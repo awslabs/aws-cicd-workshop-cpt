@@ -28,7 +28,6 @@ aws codebuild create-project --name "CodeBuildVLSDemo" --source "{\"type\": \"CO
 ```
 Note: The service role used must have permissions to access the CodeCommit repository
 
-
 ## Start a build within the project
 The next step is to start a build, however, before starting the build modify the S3 copy command which can be found in the buildspec.yml file so that a bucket from your account is used. 
 The below action will start a build which downloads the source from the repository, sets up the build environment and starts processing the buildspec.yml file.  
@@ -36,8 +35,10 @@ The below action will start a build which downloads the source from the reposito
 ```
 aws codebuild start-build --project-name "CodeBuildVLSDemo" --queued-timeout-in-minutes-override 5 --artifacts-override {"\"type\": \"NO_ARTIFACTS\""} --source-version "main"
 ```
+
 Once the build has been started the build details can be viewed from either the console or the AWS cli. 
 Use the below command to view the build details from the AWS cli.
+
 ```
 aws codebuild batch-get-builds --ids <ids>
 ```

@@ -65,7 +65,7 @@ aws elasticbeanstalk create-environment \
 --application-name VLS \
 --environment-name [your-prod-env-name] \
 --cname-prefix [your-preferred-cname] \
---solution-stack-name "64bit Amazon Linux 2 v5.2.4 running Node.js 12" \
+--solution-stack-name "64bit Amazon Linux 2 v5.2.5 running Node.js 12" \
 --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
 ```
 
@@ -76,7 +76,7 @@ aws elasticbeanstalk create-environment \
 --application-name VLS \
 --environment-name vls-prod-env \
 --cname-prefix vls-prod \
---solution-stack-name "64bit Amazon Linux 2 v5.2.4 running Node.js 12" \
+--solution-stack-name "64bit Amazon Linux 2 v5.2.5 running Node.js 12" \
 --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
 ```
 
