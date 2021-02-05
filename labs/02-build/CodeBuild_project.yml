@@ -103,13 +103,13 @@ Resources:
       Description: Build project for unit testing
       ServiceRole: !Ref CodeBuildRole
       Artifacts:
-        Type: CODEPIPELINE
+        Type: NO_ARTIFACTS
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_MEDIUM
         Image: aws/codebuild/standard:3.0
       Source:
-        Type: CODEPIPELINE
+        Type: CODECOMMIT
       TimeoutInMinutes: 15
       Tags:
         - Key: Lab
