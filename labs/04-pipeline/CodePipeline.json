@@ -1,10 +1,10 @@
 {
     "pipeline": {
         "name": "VLS",
-        "roleArn": "[CodePipelineServiceRoleArn]",
+        "roleArn": "arn:aws:iam::051842466066:role/AWSCodePipelineServiceRole",
         "artifactStore": {
             "type": "S3",
-            "location": "[ArtifactStoreBucket]"
+            "location": "codepipeline-vls-demo-cicd"
         },
         "stages": [
             {
@@ -30,8 +30,7 @@
                             }
                         ],
                         "inputArtifacts": [],
-                        "region": "eu-west-1",
-                        "namespace": "SourceVariables"
+                        "region": "eu-west-1"
                     }
                 ]
             },
@@ -48,7 +47,7 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ProjectName": "CodeBuildVLSDemo"
+                            "ProjectName": "CICD-vls-build"
                         },
                         "inputArtifacts": [
                             {
@@ -60,10 +59,10 @@
                 ]
             },
             {
-                "name": "DeployDevelopment",
+                "name": "DeployQA",
                 "actions": [
                     {
-                        "name": "DeployDevelopment",
+                        "name": "DeployQA",
                         "actionTypeId": {
                             "category": "Deploy",
                             "owner": "AWS",
@@ -72,8 +71,8 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ApplicationName": "VLS",
-                            "EnvironmentName": "[your-chosen-development-env-name]"
+                            "ApplicationName": "ci-cd-lab",
+                            "EnvironmentName": "vls-qa-env"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [
@@ -87,7 +86,7 @@
                 ]
             },
             {
-                "name": "Approval",
+                "name": "DeployProduction",
                 "actions": [
                     {
                         "name": "PromoteToProd",
@@ -102,12 +101,7 @@
                         "outputArtifacts": [],
                         "inputArtifacts": [],
                         "region": "eu-west-1"
-                    }
-                ]
-            },
-            {
-                "name": "DeployProduction",
-                "actions": [
+                    },
                     {
                         "name": "DeployProduction",
                         "actionTypeId": {
@@ -116,10 +110,10 @@
                             "provider": "ElasticBeanstalk",
                             "version": "1"
                         },
-                        "runOrder": 1,
+                        "runOrder": 2,
                         "configuration": {
-                            "ApplicationName": "VLS",
-                            "EnvironmentName": "[your-chosen-production-env-name]"
+                            "ApplicationName": "ci-cd-lab",
+                            "EnvironmentName": "vls-prod-env"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [

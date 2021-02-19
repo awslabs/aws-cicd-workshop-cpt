@@ -1,6 +1,6 @@
 # AWS Engineering Learning Series - CI / CD
 
-> A series of AWS Labs with CI/CD services
+> A series of AWS Labs for CI/CD related services
 
 <div align="center" style="padding:20px;">
     <img src="./assets/aws_logo.png" width="50%" height="75%">

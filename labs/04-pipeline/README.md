@@ -2,7 +2,7 @@
 
 We will now create a continuous delivery pipeline using AWS CodePipeline that will:
 
-- Fetch source code from GitHub
+- Fetch source code from CodeCommit
 - Build an application
 - Deploy the application to our AWS ElasticBeanstalk QA environment
 - Deploy the application to our AWS ElasticBeanstalk Production environment after manual approval

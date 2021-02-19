@@ -34,18 +34,6 @@ Resources:
             - ''
             - - 'arn:aws:s3:::'
               - '*'
-          - !Join
-            - ''
-            - - 'arn:aws:s3:::'
-              - '*'
-          - !Join
-            - ''
-            - - 'arn:aws:s3:::'
-              - '*'
-          - !Join
-            - ''
-            - - 'arn:aws:s3:::'
-              - '*'
         - Action:
           - codecommit:GitPull
           Effect: Allow
