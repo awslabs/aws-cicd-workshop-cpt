@@ -10,7 +10,7 @@ Parameters:
     Description: 'Specify a name for the CodeBuild project'
   CodeCommitRepo:
     Type: String
-    Default: 'CI_CD'
+    Default: 'CICD'
     Description: 'Name of the repo created in Lab 1'
 
 Resources:

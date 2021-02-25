@@ -13,7 +13,6 @@ To create a new CodeCommit repository using the [AWS CLI](https://aws.amazon.com
 
 ```
 aws codecommit create-repository --repository-name CICD --repository-description "My repository for the CI/CD Workshop"
-
 ```
 
 After running this command, a json object containing Metadata is returned. Here is an example of this object:
@@ -107,9 +106,4 @@ git push origin dev
 
 ## View the Repository using the AWS Console
 
-to view this newly created repo in the AWS console, [use this link](https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/CICD/browse?region=eu-west-1)
-
-> Todo
-
-- [] modify this for sample repo.
-- [] check to see if we should add the detials for creating a PR.
+To view this newly created repo in the AWS console, [use this link](https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/CICD/browse?region=eu-west-1)
