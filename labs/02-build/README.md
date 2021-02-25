@@ -12,6 +12,20 @@ Outcomes:
 ## Create IAM role for CodeBuild project
 Before creating the CodeBuild project an IAM role is required which will allow the CodeBuild service permission to other services such as S3. The creation of the CodeBuild service role can be done from the AWS cli or the console. [IAM service role creation](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role) 
 
+To create the IAM role with the CLI, please see the below commands:
+
+- We create the role with the below command
+
+```bash
+aws iam create-role --role-name CodeBuildServiceRole --assume-role-policy-document file://create-role.json
+```
+
+- We add a policy to our above created role
+
+```bash
+aws iam put-role-policy --role-name CodeBuildServiceRole --policy-name CodeBuildServiceRolePolicy --policy-document file://put-role-policy.json
+```
+
 
 ## Create CodeBuild project - CLI
 
