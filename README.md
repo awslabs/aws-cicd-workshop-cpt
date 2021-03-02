@@ -9,7 +9,6 @@
 - [Lab 3](./labs/03-beanstalk/README.md)
 - [Lab 4](./labs/04-pipeline/README.md)
 - [Lab 5](./labs/05-infra-as-code/README.md)
-- [Lab 6](./labs/06-artifacts/README.md)
 
 ## Launching your Lab Environment
 
