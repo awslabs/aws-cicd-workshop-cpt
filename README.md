@@ -2,10 +2,6 @@
 
 > A series of AWS Labs for CI/CD related services
 
-<div align="center" style="padding:20px;">
-    <img src="./assets/aws_logo.png" width="50%" height="75%">
-</div>
-
 ## Labs
 
 - [Lab 1](./labs/01-repo/README.md)
