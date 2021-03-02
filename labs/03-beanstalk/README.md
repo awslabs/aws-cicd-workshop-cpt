@@ -15,16 +15,25 @@ For this lab, you will need to be in the ~/environment/aws-vls-cpt-ci_cd_worksho
 
 Create role that will be used by instances launched in your Elastic Beanstalk environment
 
-```
-aws iam create-role --role-name aws-elasticbeanstalk-ec2-role --assume-role-policy-document file://trust-policy.json
+```bash
+aws iam create-role --role-name aws-elasticbeanstalk-ec2-role \
+--assume-role-policy-document file://trust-policy.json
 ```
 
 ### Attach IAM Policy To Role
 
 Attach the managed IAM Policy `AWSElasticBeanstalkFullAccess` to the `aws-elasticbeanstalk-ec2-role` we created earlier.
 
+```bash
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess \
+--role-name aws-elasticbeanstalk-ec2-role
 ```
-aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess --role-name aws-elasticbeanstalk-ec2-role
+
+And for additional DynamoDB permissions:
+
+```bash
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess \
+--role-name aws-elasticbeanstalk-ec2-role
 ```
 
 ## Create Elastic Beanstalk Application
@@ -65,7 +74,7 @@ aws elasticbeanstalk create-environment \
 --application-name VLS \
 --environment-name [your-prod-env-name] \
 --cname-prefix [your-preferred-cname] \
---solution-stack-name "64bit Amazon Linux 2 v5.2.5 running Node.js 12" \
+--solution-stack-name "64bit Amazon Linux 2 v5.3.0 running Node.js 12" \
 --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value="aws-elasticbeanstalk-ec2-role"
 ```
 
