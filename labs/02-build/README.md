@@ -39,7 +39,10 @@ Next use the below AWS cli command as a base replacing the --name, --source and 
 * --service-role: 
 
 ```
-aws codebuild create-project --name "CodeBuildVLSDemo" --source "{\"type\": \"CODECOMMIT\",\"location\": \"https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CICD\"}" --artifacts {"\"type\": \"NO_ARTIFACTS\""} --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/amazonlinux2-x86_64-standard:3.0\",\"computeType\": \"BUILD_GENERAL1_MEDIUM\"}" --service-role "arn:aws:iam::xxxxxxxxxxxx:role/service-role/codebuild-CodeBuildVLS-service-role"
+aws codebuild create-project --name "CodeBuildVLSDemo" \
+--source "{\"type\": \"CODECOMMIT\",\"location\": \"https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/CICD\"}" --artifacts {"\"type\": \"NO_ARTIFACTS\""} \
+--environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/amazonlinux2-x86_64-standard:3.0\",\"computeType\": \"BUILD_GENERAL1_MEDIUM\"}" \
+--service-role "arn:aws:iam::xxxxxxxxxxxx:role/service-role/codebuild-CodeBuildVLS-service-role"
 ```
 Note: The service role used must have permissions to access the CodeCommit repository
 
@@ -52,7 +55,10 @@ The next step is to start a build, however, before starting the build modify the
 The below action will start a build which downloads the source from the repository, sets up the build environment and starts processing the buildspec.yml file.  
 
 ```
-aws codebuild start-build --project-name "CodeBuildVLSDemo" --queued-timeout-in-minutes-override 5 --artifacts-override {"\"type\": \"NO_ARTIFACTS\""} --source-version "main"
+aws codebuild start-build --project-name "CodeBuildVLSDemo" \
+--queued-timeout-in-minutes-override 5 \
+--artifacts-override {"\"type\": \"NO_ARTIFACTS\""} \
+--source-version "main"
 ```
 
 Once the build has been started the build details can be viewed from either the console or the AWS cli. 

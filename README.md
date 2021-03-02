@@ -92,12 +92,7 @@ The script installs and configures the necessary pre-requisites
 $ cd workshop/
 $ cd scripts/
 $ chmod +x bootstrap.sh
-$ sudo bootstrap.sh
+$ ./bootstrap.sh
 ```
 
 Confirm the IAM role is as expected
-
-> internal checklist
-
-- [ ] Add detailed Labs for day 1 / 2
-- [ ] Add section for day 3 challenge
