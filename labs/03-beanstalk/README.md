@@ -138,9 +138,9 @@ Retrieve evironment DNS and check application on the browser
 aws elasticbeanstalk describe-environments --environment-names [your-prod-env-name] --query "Environments[*].CNAME" --output text
 ```
 
-## Create QA Environment
+## Create QA Environment - CLI
 
-(Note to team: no single command to clone an environmment using CLI)
+> We can also clone the environment inside the console
 
 Create a QA environment from a configuration template of the Prod environment.
 
