@@ -1,10 +1,10 @@
 {
     "pipeline": {
         "name": "VLS",
-        "roleArn": "arn:aws:iam::051842466066:role/AWSCodePipelineServiceRole",
+        "roleArn": "[CodePipelineServiceRoleArn]",
         "artifactStore": {
             "type": "S3",
-            "location": "codepipeline-vls-demo-cicd"
+            "location": "[ArtifactStoreBucket]"
         },
         "stages": [
             {
@@ -22,7 +22,7 @@
                         "configuration": {
                             "BranchName": "main",
                             "PollForSourceChanges": "false",
-                            "RepositoryName": "CICD"
+                            "RepositoryName": "[Name of CodeCommit repo]"
                         },
                         "outputArtifacts": [
                             {
@@ -47,7 +47,7 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ProjectName": "CICD-vls-build"
+                            "ProjectName": "CodeBuildVLSDemo"
                         },
                         "inputArtifacts": [
                             {
@@ -71,8 +71,8 @@
                         },
                         "runOrder": 1,
                         "configuration": {
-                            "ApplicationName": "ci-cd-lab",
-                            "EnvironmentName": "vls-qa-env"
+                            "ApplicationName": "VLS",
+                            "EnvironmentName": "[Name of QA environment]"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [
@@ -112,8 +112,8 @@
                         },
                         "runOrder": 2,
                         "configuration": {
-                            "ApplicationName": "ci-cd-lab",
-                            "EnvironmentName": "vls-prod-env"
+                            "ApplicationName": "VLS",
+                            "EnvironmentName": "[Name of prod environment]"
                         },
                         "outputArtifacts": [],
                         "inputArtifacts": [

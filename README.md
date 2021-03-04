@@ -76,7 +76,7 @@ The environment will be our workstation for the sessions, there are a few steps 
 #### Clone the repository
 
 ```bash
-$ git clone https://github.com/pedreviljoen/aws-vls-cpt-ci_cd_workshop.git workshop
+$ git clone https://github.com/awslabs/aws-cicd-workshop-cpt.git workshop
 ```
 
 #### Navigate to the project directory and run the bootstrap script
