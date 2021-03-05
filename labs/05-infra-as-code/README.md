@@ -24,7 +24,7 @@ Create the stack with resources Defined in the *cfn-template.yml* in the current
 - You are also able to pass in parameters through the CLI, in this case you can name the DynamoDB table that is created through passing TableName
  
   ```console
-  aws cloudformation create-stack --stack-name [YOUR STACK NAME] --template-body file://cfn-template.yml --parameters ParameterKey=TableName,ParameterValue=myTable
+  aws cloudformation create-stack --stack-name [YOUR STACK NAME] --template-body file://cfn-template.yml --parameters ParameterKey=TableName,ParameterValue=artistTable
   ```
 
 Output
