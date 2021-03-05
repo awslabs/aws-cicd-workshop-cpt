@@ -36,6 +36,15 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFu
 --role-name aws-elasticbeanstalk-ec2-role
 ```
 
+### Create Instance Profile
+
+Create the intsance profile and add the `aws-elasticbeanstalk-ec2-role` role we created earlier.
+
+```bash
+aws iam create-instance-profile --instance-profile-name aws-elasticbeanstalk-ec2-role
+aws iam add-role-to-instance-profile --instance-profile-name aws-elasticbeanstalk-ec2-role --role-name aws-elasticbeanstalk-ec2-role
+```
+
 ## Create Elastic Beanstalk Application
 
 Create an Elastic Beanstalk Application that will house the two environments - Prod and QA
