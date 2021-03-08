@@ -10,6 +10,8 @@
 - [Lab 4](./labs/04-pipeline/README.md)
 - [Lab 5](./labs/05-infra-as-code/README.md)
 
+[**Gameday**](./gameday/README.md)
+
 ## Launching your Lab Environment
 
 ### 1. Launch a Cloud9 Environment
