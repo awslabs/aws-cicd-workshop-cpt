@@ -12,15 +12,15 @@ They are looking for a Proof of concept that can be used to highlight the benefi
 
 ## Request
 
-Please create a suitable Proof of concept for Awesome Inc and share it with them using the submission script. In terms of code, feel free to sue any sample code (even the one from the labs) to issrate the point. However please note that the code will be subimited to ensure that Awesome Inc can recreate the CI/CD Proof of Concept.
+Please create a suitable Proof of Concept for Awesome Inc and share it with them using the submission script. In terms of code, feel free to use any sample code (even the one from the labs) to illustrate the point. However please note that the code will be submitted to ensure that Awesome Inc can recreate the CI/CD Proof of Concept.
 
 ## Submission
 
-The [submission script](./submission.sh) will create a zip containing the code in the folder it is run and will describe the CI/CD related infrastuture in the account. The script will then uplaod it to an S3 bucket belonging to Awesome Inc and will be deleted after the evalation period.  
+The [submission script](./submission.sh) will create a zip containing the code in the folder it is run and will describe the CI/CD related infrastucture in the account. The script will then upload it to an S3 bucket belonging to Awesome Inc and will be deleted after the evaluation period.  
 
 To run the script:
 
 1. Download collection script ([submission.sh](./submission.sh)) from GitHub
-2. Place the script in the root folder of your repo within a cloud9 environemnt.
+2. Place the script in the root folder of your repo within a Cloud9 environment.
 3. Make the script executable. (chmod +x submission.sh)
-4. Excute the script, ./submission.sh. Please note that the script will ask for your name and email address at the start to help keep track of the submissions. Alternatively, you can use the NAME and EMAIL environment variables respectively to provide these detials. 
+4. Execute the script, ./submission.sh. Please note that the script will ask for your name and email address at the start to help keep track of the submissions. Alternatively, you can use the NAME and EMAIL environment variables respectively to provide these details. 
